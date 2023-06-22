@@ -1,0 +1,213 @@
+/DAY 4
+
+// palindrome
+let str= "malayalam";
+let pal=str.split('');
+pal.reverse();
+let str1= pal.join('');
+if(str==str1)
+console.log("true");
+else
+console.log("false");
+
+let obj3 =[1,2,3,4,5];
+for(let key in obj3){
+    console.log(key,obj3[key]);
+}
+let obj2 =[1,2,3,4,5];
+for(let key of obj2){
+    console.log(key);
+}
+
+let sece=["anjaan","rolex","rujubai"];
+sece.forEach((ele) =>{
+    console.log(ele);
+
+} )
+
+
+let sece=["anjaan","rolex","rujubai"];
+sece.forEach((ele) =>{
+    console.log(ele.repeat(2));
+
+} )
+
+
+let ece=[1,2,3,4,5];
+ece.forEach((e) =>{
+    console.log(e*e);
+
+} )
+
+
+let obj={
+    a:1,
+    b:2
+};
+for(let ele in obj){
+    console.log(ele,obj[ele]);
+}
+
+
+let sece=["anjaan","rolex","maara","suriya"];
+let arr= sece.map(ele=>{
+    return ele.repeat(2);
+});
+console.log(arr);
+
+let arr=[1,2,3,4,5];
+let brr=arr.filter((ele)=>{
+    return (ele%2==1);
+})
+console.log(brr);
+
+let arr=[1,2,3,4];
+let brr=arr.filter((ele)=>{
+    return " ";
+});
+console.log(brr);
+
+let arr=[
+    {
+        name:"anjaan",
+        dob:2002
+    },
+    {
+        name:"rolex",
+        dob:2004
+    },
+    {
+        name:"suriya",
+        dob:2003
+    },
+    {
+        name:"rajubai",
+        dob:2005
+    }
+];
+ let brr=arr.filter((ele)=>{
+    return ele.dob>2002;
+ }).map((ele)=>{
+    return ele.name
+ })
+ console.log(brr);
+
+ 
+const arr=[1,2,3,4,5];
+const brr=[...arr];
+brr[2]=100;
+console.log(arr);
+console.log(brr);
+
+const rr=[1,2,3,4,5];
+const br=rr;
+br[2]=100
+console.log(rr);
+console.log(br);
+
+
+let obj={
+    name:"rolex",
+    age:42
+};
+let objj=obj;
+objj.name="anjaan";
+console.log(obj);
+console.log(objj);
+
+let obj={
+    name:"anjaan",
+    age:42,
+    name:"rolex"
+};
+console.log(obj);
+
+
+let arr=[
+{
+        name:"anjaan",
+        age:41,
+        salary:23000,
+        ph:123
+},
+{
+    name:"rolex",
+    age:42,
+    salary:26000,
+    ph:923
+},
+{
+    name:"deva",
+    age:41,
+    salary:27000,
+    ph:183
+},
+{
+    name:"suriya",
+    age:41,
+    salary:20000,
+    ph:124
+}
+];
+let brr=arr.filter((ele)=>{
+    return ele.salary>25000;
+}).map((ele)=>{
+    return{ name:ele.name,age:ele.age};
+})
+console.log(brr);
+
+
+
+let arr=[1,2,3,4,5,6,7,8];
+let [a,b, , ,c,...f]=arr;
+console.log(a,b,c,f);
+
+
+let obj={
+    name:"anjaan",
+    age:42,
+    place:"covai",
+    college:"sece",
+   
+};
+let {name,age,place,fav="bike"}=obj;
+console.log(name,age,place,fav);
+
+// let fav="bike";
+*/
+//api call
+
+/*const abc = fetch('https://jsonplaceholder.typicode.com/todos');
+abc
+.then((response) => response.json())
+.then((data) => console.log(data[0]))
+.catch((error) => console.log('error', error));
+
+
+const user1 ={
+    name: "kanguva",
+    age: 42
+};
+
+console.log(JSON.stringify(user1));
+
+
+//api call illustration
+const promisex = new Promise((resolve , reject) => {
+    setTimeout(() => {
+        resolve('resolved')
+    },3000)
+})
+
+
+const apicall=async()=>{
+    try{
+    const promise=await fetch("https://jsonplaceholder.typicode.com/todos");
+    const data=await promise.json();
+    console.log(data);
+    }
+    catch(error){
+        console.log("error");
+    }
+}
+apicall();
