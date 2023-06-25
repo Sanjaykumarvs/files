@@ -1,0 +1,341 @@
+NODE JS v8 engine-- it convert the java script into byte code and execute.
+input and output speed a  irukum .
+when there is more input and output the node js is useful
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+print the word or anything by 
+
+console.log("Hello anjaan");                      cmd PS C:\learn front end\node> node app1.js
+
+function sum(n1,n2){
+    return n1+n2;                                 cmd o/p  Hello anjaan
+}
+console.log(sum(2,3));                                      5
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+app1.js
+----------
+
+let s1= parseInt(process.argv[2]);
+let s2 =parseInt(process.argv[3]);
+
+
+function sum(n1,n2){
+    return n1+n2;
+}
+
+function sub(n1,n2){
+    return n1-n2;
+}
+
+function mul(n1,n2){
+    return n1*n2;
+}
+
+function div(n1,n2){
+    return n1/n2;
+}
+
+module.exports={sum,sub,mul,div};
+
+app.js
+-------------------
+
+const{sum, sub,mul,div }=require('./app1');    output  5
+console.log(sum(2,3));
+
+
+----------------------------------------------------------------------------------
+
+APP.JS
+-----------
+
+const{sum, sub,mul,div }=require('./app1');
+let s=process.argv[2]
+switch(s){
+    case '+':
+       console.log(sum(2,3));
+       break;
+
+    case '-':
+        console.log(sub(4,2));                               CMD PS C:\learn front end\node> node app.js +
+        break;
+    case '*':
+        console.log(mul(2,3));
+        break;
+    
+    default:
+        console.log(div(4,2));                                 CMD O/P  5 ----------------
+
+
+}
+
+APP1.JS
+--------------------------
+
+function sum(n1,n2){
+    return n1+n2;
+}
+
+function sub(n1,n2){
+    return n1-n2;
+}
+
+function mul(n1,n2){
+    return n1*n2;
+}
+
+function div(n1,n2){
+    return n1/n2;
+}
+
+module.exports={sum,sub,mul,div};
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+APP.JS
+------------------
+
+const{sum, sub,mul,div }=require('./app1');
+let s1=process.argv[2]
+let S2=process.argv[3]
+let S3=process.argv[4]
+switch(s1){
+    case '+':
+       console.log(sum(S2,S3));
+       break;
+
+    case '-':
+        console.log(sub(S2,S3));
+        break;
+    case '*':
+        console.log(mul(S2,S3));
+        break;
+    
+    default:
+        console.log(div(S2,S3));
+}
+
+APP1.JS
+------------------------
+
+function sum(n1,n2){
+    return n1+n2;
+}
+
+function sub(n1,n2){
+    return n1-n2;
+}
+
+function mul(n1,n2){
+    return n1*n2;
+}
+
+function div(n1,n2){
+    return n1/n2;
+}
+
+module.exports={sum,sub,mul,div};
+
+===========================================================================================================================================================================
+STATES.TXT
+
+--------------------------------
+TAMILNADU 
+ANDHRA
+KERALA
+TELUNGANA
+
+APP.JS
+------------------
+
+const fs=require('fs');
+fs.readFile(`${__dirname}/states.txt`,(err,data)=>{     OUTPUT --  TAMINADU......TELUNGANA
+    if(err)
+    {
+        console.log("error");
+    }
+    else
+    {
+        console.log(data.toString());
+    }
+})
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+const name="an";
+console.log(__dirname+"states.txt");       tells the directory name...
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+const fs=require('fs');
+const inputdata='gili gili bili bili';
+fs.writeFile(`${__dirname}/file1.txt`,inputdata,(err)=>{
+  if(err)
+  {
+    console.log("error");
+  }
+  else{
+    console.log("done");
+  }
+})
+
+-----------------------------------------PS C:\learn front end\node> node app.js  If we run this then a new file is cretaed with our given name file1.txt and the 
+                                           text in the the const inputdata is saved in the file1.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CALL BACK HULL
+
+READ==> WRITE==>PRINT
+
+const fs=require('fs');
+fs.readFile(`${__dirname}/states.txt`,(err,data)=>{    
+    if(err)
+    {
+        console.log("error");
+    }
+    else
+    {
+        console.log(data.toString());
+
+        const fs=require('fs');
+const inputdata='gili gili bili bili';
+fs.writeFile(`${__dirname}/file1.txt`,inputdata,(err)=>{
+  if(err)
+  {
+    console.log("error");
+  }
+  else{
+    console.log("done");
+
+    console.log("hi");
+  }
+})
+
+
+    }
+})
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+const fs=require('fs');
+function read(filePath){
+  return new Promise ((resolve,reject)=>
+  {
+    fs.readFile(filePath,(err,data)=>
+    {
+      if(err)
+      {
+        reject('error');
+      }
+      else{
+        resolve(data);
+      }
+    })
+  })
+}
+function write(filePath,input){
+  return new Promise ((resolve,reject)=>
+  {
+    fs.writeFile(filePath,input,(err)=>
+    {
+      if(err)
+      {
+        reject('error');
+      }
+      else{
+        resolve('write operation completed');
+      }
+    })
+  })
+}
+
+// read(`${__dirname}/states.txt`)
+// .then((data)=>{
+//   console.log(data.toString());
+// }).catch((err)=>{
+//   console.log(err);
+// })
+
+read(`${__dirname}/states.txt`)
+.then((data)=>{
+  console.log(data.toString());
+  return write(`${__dirname}/fill.txt`,data)
+}).then((a)=>{
+  console.log(a);
+
+}).catch((err)=>{
+  console.log(err);
+})
+
+
+------------------------------------------------------------------------------------------------------------------------------------------..........................................................................................................................................
+
+const fs=require('fs');
+function read(filePath){
+  return new Promise ((resolve,reject)=>
+  {
+    fs.readFile(filePath,(err,data)=>
+    {
+      if(err)
+      {
+        reject('error');
+      }
+      else{
+        resolve(data);
+      }
+    })
+  })
+}
+function write(filePath,input){
+  return new Promise ((resolve,reject)=>
+  {
+    fs.writeFile(filePath,input,(err)=>
+    {
+      if(err)
+      {
+        reject('error');
+      }
+      else{
+        resolve('write operation completed');
+      }
+    })
+  })
+}
+
+
+read(`${__dirname}/states.txt`)
+.then((data)=>{
+  console.log(data.toString());
+  return write(`${__dirname}/fill.txt`,data)
+}).then((a)=>{
+  console.log(a);
+
+}).catch((err)=>{
+  console.log(err);
+})
+
+const fileOperation=async()=>{
+   try{
+    const states=await read(`${__dirname}/states.txt`);
+    console.log(states.toString());
+    const result=await write(`${__dirname}/pure.txt`,states);
+    console.log(result);
+   }
+   catch(error)
+   {
+
+    console.log(error);
+   }
+
+ }
+fileOperation();
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+

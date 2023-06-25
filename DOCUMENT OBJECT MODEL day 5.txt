@@ -1,0 +1,99 @@
+ document.body.innerText="<div>hello</div>"; ----------       <div>hello</div>
+
+  document.body.innerHTML="<div>hello</div>";   ------       hello
+
+   document.body.style.backgroundColor="lightgreen"; -----    background of body colour changing
+-----------------------------------------------------------------------------------------------------------------------
+
+    const allchild=document.body.children;
+    allchild[1].style.color="red";                               
+    allchild[3].style.color="yellow";
+
+  HTML.html
+
+ <body>
+    <script type=module src = 'index.js' ></script>      ............ hello and bye colour changes
+    <div>hello</div>
+    <div>hi</div>
+    <div>bye</div>
+    <div>take</div>
+    <div>walk</div>
+</body>
+
+
+---------------------------------------------------------------------------------------------------------------------------
+
+document.body.style.backgroundColor="lightgreen";
+ const allchild=document.body.children;
+ 
+ setTimeout(()=>allchild[1].style.color="blue",3000)
+ setTimeout(()=>allchild[2].style.color="yellow",6000)
+ setTimeout(()=>allchild[3].style.color="red",9000)                        at 3rd second blue aagum at 4 yelloaagum  at 9 red aagum
+
+ setInterval(()=>allchild[4].style.color="blue",3000)
+ setInterval(()=>allchild[5].style.color="yellow",6000)
+ setInterval(()=>allchild[6].style.color="red",9000)
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+document.body.style.backgroundColor="lightgreen";
+ const allchild=document.body.children;
+ 
+ setTimeout(()=>{
+    allchild[1].style.color="blue"
+    allchild[1].innerText="blue"                  
+}
+,3000)
+ setTimeout(()=>{
+    allchild[2].style.color="yellow"
+    allchild[2].innerText="yellow"
+}
+,6000)
+ setTimeout(()=>{
+    allchild[3].style.color="pink"
+    allchild[3].innerText="pink"
+}
+,9000)
+
+for 3 6 and 9 second the actual text in div changed int blue and blue colour, yellow and yellow color and pink and pink color.
+
+---------------------------------------------------------------------------------------------------------------------------------------
+ 
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+const allchild=document.body.children;
+let refresh=true;
+setInterval(()=>{
+    allchild[1].style.color=(refresh?"yellow":"orange");  ---------------    ------for every two second the text change int yellow and      
+                                                                                     orange alternately
+    refresh= !refresh;
+},2000);
+ 
+ ---------------------------------------------------------------------------------------------------------------------------------------
+
+let tag=document.getElementsByClassName("a");
+  tag[0].innerText="sanjay";
+  console.log(tag);
+  
+  let id=document.getElementById("b");
+  id.innerText="sanjay";
+ console.log(id);
+
+--------------------------------------------------------------------------------------------------------------
+
+const button=document.getElementById("but");
+ const username=document.getElementById("user");
+ const password=document.getElementById("pass");
+ const form=document.getElementById("login");
+
+ button.addEventListener('click',(event)=>{
+    console.log('click');
+ })
+ form.addEventListener('submit',(event)=>{
+    event.preventDefault();
+    console.log('submit',username.value,password.value);
+ })
+
+-----------------------------------------------------------------------------------------------------------------------
