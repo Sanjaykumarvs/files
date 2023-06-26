@@ -1,0 +1,118 @@
+NPM
+---------
+
+npm is the node package manager , it is used to install more packages...
+
+JSON
+-------------
+
+WE TRANSMIT THE DATA FROM ONE APPLICATION TO ANOTHER APPLICATION . so we need a common platform so json is used for it.
+
+.................................................................................... 
+JSON CONTAINS MAY AOBJECTS ... JSON IS OBJECT
+json start and end  with curly brases
+it contains key and value pair in double quotes
+
+ personal.json
+------------------
+
+{
+    "name":"anjaan",
+    "age":41,
+    "rollno":"21cs126",
+    "address":{
+        "doorno":2,
+        "street":"andheri street",
+        "city":"mumbai"
+    },
+    "parents":{
+        "father":"sanjay ramasamy",
+        "mother":"kalpana"
+    }
+}
+
+index.js
+---------
+
+const info= require('./personal.json');
+console.log(info);
+console.log(info.name);
+console.log(info.parents.father);
+
+
+output--------------
+---------------
+
+{
+  name: 'anjaan',
+  age: 41,
+  rollno: '21cs126',
+  address: { doorno: 2, street: 'andheri street', city: 'mumbai' },
+  parents: { father: 'sanjay ramasamy', mother: 'kalpana' }
+}
+anjaan
+sanjay ramasamy
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+accessing the json key value pair...
+
+const info= require('./personal.json');                    -----importing personal .js-------
+const key =['name','age','rollno','address','parents'];
+for(let i=0;i<key.length;i++){
+    console.log(info[key[i]]);
+}
+
+or
+-----
+
+const info= require('./personal.json');
+const key =['name','age','rollno','address','parents'];
+for(let i=0;i<key.length;i++){
+    constant keys=key[i]
+    console.log(info[keys);
+}
+
+ we use it if we know about what are the key present in the json file...
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+const info= require('./personal.json');
+const key=(Object.keys(info));
+for(let i=0;i<key.length;i++)
+{
+    console.log(info[key[i]]);
+
+}
+
+ we use it if we does know about what are the key present in the json file...
+----------------------------------------------------------------------------------------------------------------------------------------
+
+web server creation
+---------------------
+
+const http=require('http');
+const hostname='localhost';
+const port=3001;
+
+const requestListener=function(request,response){
+    response.setHeader("Content-Type","text/html");
+    response.writeHead(200)
+    response.end(`
+    <h5>KANGUVA</h5>
+    <p>KANGUVA WILL RULE THE TAMIL CINEMA</p>
+    `)
+}
+    const server=http.createServer(requestListener);            type locathost:3001 in chrome link
+    server.listen(port,hostname,()=>{
+        console.log("kanguva is comming");
+    })
+
+....................................................................................................................................................
+
+
+
+
+
+
+
+
