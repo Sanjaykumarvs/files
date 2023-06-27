@@ -1,0 +1,147 @@
+REQUEST---METHODS
+------------------------------------          
+          GET
+          PUT
+          POST
+          patch
+          DELETE
+
+...............................................................................................................................................
+
+POST – add data or initiate the specified action
+GET – get data
+PUT or PATCH – update data
+DELETE – delete data
+
+PUT vs PATCH
+............
+
+
+PUT is to be used for operations that update (replace) an entire resource.
+PATCH is to be used for operations that update only some attributes of a resource.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+let express= require('express');
+let app=express();
+
+
+app.get('/anjaan',(request,response)=>{
+    response.send("rolex the king of tamil cinema");
+})
+app.listen(3000,()=>{
+    console.log("server is connected");                -- listen is used to create a port.
+});
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+index.js
+-----------
+
+let express= require('express');
+let app=express();
+
+
+app.get('/anjaan',(request,response)=>{
+    const filepath=__dirname+'/index.html';
+    response.sendFile(filepath);
+    
+})
+app.listen(3000,()=>{
+    console.log("server is connected");
+});
+
+index.html
+-----------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>click me!</button>
+</body>
+</html>
+
+click me ! printed in the screen as output..
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+index.js
+-------------
+
+let express= require('express');
+let app=express();
+
+
+app.get('/anjaan',(request,response)=>{
+    const filepath=__dirname+'/bio.txt';
+    response.sendFile(filepath);
+    // const filepathh=__dirname+'/bio.txt';
+    // response.sendFile(filepathh);
+})
+
+
+app.listen(3000,()=>{
+    console.log("server is connected");
+});
+
+
+bio.txt
+---------
+
+{
+    "name":"anjaan",
+    "place":"andheri",
+    "age":42
+
+}
+
+text in the bio.text printed as output
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+WITH ROUTER AND PATH
+----------------------
+
+ROUTER.JS
+--------------
+
+let express=require("express");
+let path=require("path");
+
+const router=express.Router();
+router.get("/",(request,response)=>{
+    response.send("hi send");
+})
+
+router.get('/login',(request,response)=>{
+    console.log(__dirname);
+    response.sendFile(path.join(__dirname,"index.html"));
+});
+module.exports=router;
+
+
+INDEX.JS
+-----------
+
+let express= require('express');
+let app=express();
+const router=require("./router");
+app.use(router);
+
+app.listen(3003,()=>{
+    console.log("server is connected");
+});
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
